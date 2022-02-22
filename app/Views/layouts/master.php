@@ -48,7 +48,7 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
             <li class="nav-item">
-                <a class="nav-link " href="#">
+                <a class="nav-link " href="<?= base_url('/categories') ?>">
                     <?= img('img/massage__.png') ?>
                     <span> <?= lang('App.categories') ?> </span>
                 </a>

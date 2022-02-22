@@ -1,8 +1,6 @@
 <?= $this->extend('layouts/master') ?>
 <?= $this->section('content') ?>
 
-<?= helper('html') ?>
-
 <h1 class="h3 mb-2 text-gray-800"><?= lang('App.dashboard') ?> </h1>
 <div class="row">
     <!-- Earnings (Annual) Card Example -->
