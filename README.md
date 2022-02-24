@@ -12,7 +12,6 @@ PHP version 7.3 or 8.0.
 git clone git@github.com:karemshawky/paytabs.git
 composer install
 cp env .env
-
 ```
 ### In `.env` file **uncomment** some config values:
 
@@ -28,9 +27,9 @@ cp env .env
 php spark key:generate
 php spark migrate
 php spark db:seed  with file name [ CategoriesSeeder ]
-
 ```
 
 After that go to this route to add categories:
-
+```
 http://YOUR_BASE_URL.test/categories/new
+```
