@@ -34,6 +34,8 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('/home', 'Home::home');
 $routes->resource('categories', ['only' => ['index', 'new', 'create']]);
+$routes->get('/categories/all', 'Categories::getCategories');
+$routes->get('/categories/parent/(:num)', 'Categories::getSubCategory/$1');
 
 
 

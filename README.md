@@ -1,12 +1,36 @@
-# CodeIgniter 4 Application Starter
+# CodeIgniter 4 Application
 
-## What is CodeIgniter?
+## How to install the project?
 
-## Installation & updates
+## Requirement
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+PHP version 7.3 or 8.0.
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+## Installation
+
+```
+git clone git@github.com:karemshawky/paytabs.git
+composer install
+cp env .env
+
+```
+### In `.env` file **uncomment** some config values:
+
+- `CI_ENVIRONMENT`
+- `app.baseURL` and add your base URL
+- add `app.indexPage = ''`
+- database section the part start with `database.default` and add your config
+
+
+### Run some commands
+
+```
+php spark key:generate
+php spark migrate
+php spark db:seed  with file name [ CategoriesSeeder ]
+
+```
+
+After that go to this route to add categories:
+
+http://YOUR_BASE_URL.test/categories/new

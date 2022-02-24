@@ -12,4 +12,6 @@ return [
     'id' => 'رقم المسلسل',
     'back' => 'عودة',
     'save' => 'حفظ',
+    'category_name_sub' => 'القسم الفرعي رقم ',
+    'category_added_successfully' => 'تم اضافة القسم بنجاح'
 ];

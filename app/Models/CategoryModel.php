@@ -9,13 +9,23 @@ class CategoryModel extends Model
     protected $table = 'categories';
     protected $allowedFields = ['name', 'parent_id'];
 
-    public function getParent()
+    /**
+     * Get parent categories.
+     *
+     * @return void|array
+     */
+    public function parentCategories()
     {
         return $this->where('parent_id', 0)->findAll();
     }
 
-    public function getSub()
+    /**
+     * Get sub categories.
+     *
+     * @return void|array
+     */
+    public function subCategory($id)
     {
-        return $this->where('parent_id !=', 0)->findAll();
+        return $this->where('parent_id', $id)->findAll();
     }
 }

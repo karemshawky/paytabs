@@ -15,35 +15,36 @@
                 <span style="color: red;"><?= session()->getFlashdata('error') ?></span>
                 <span style="color: red;"><?= service('validation')->listErrors() ?></span>
 
-                <form action="<?= base_url('/categories') ?>" method="post">
+                <form action="javascript:void(0)" id="add-category-form" method="post">
                     <?= csrf_field() ?>
 
-                    <div class="col-md-6">
-                        <div class="form-group col-md-6">
+                    <?php $i = 1 ?>
+                    <div class="col-12">
+                        <div class="form-group col-6">
                             <label> <?= lang('App.category_name') ?> </label>
-                            <input type="text" name="name" class="form-control" value="<?= set_value('name') ?>" placeholder="<?= lang('App.category_name') ?>">
+                            <input type="text" name="name" id="name" class="form-control" value="<?= set_value('name') ?>" placeholder="<?= lang('App.category_name') ?>">
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-6">
                             <label> <?= lang('App.parent_category') ?> </label>
-                            <select name="parent_id" id="parent" class="form-control">
+                            <select class="form-control parent" name="categories" id="categories-<?= $i ?>" onclick="addDiv(<?= $i ?>)">
                                 <option value="0"> - </option>
-                                <?php foreach ($parentCategories as $parent) : ?>
-                                    <option value="<?= $parent['id'] ?>"> <?= $parent['name'] ?> </option>
-                                    <?php foreach ($subCategories as $sub) : ?>
-                                        <?php if ($parent['id'] == $sub['parent_id']) : ?>
-                                            <option class="sub" value="<?= $sub['id'] ?>"> -- <?= $sub['name'] ?> </option>
-                                        <?php endif ?>
-                                    <?php endforeach ?>
+                                <?php foreach ($categories as $category) : ?>
+                                    <option value="<?= $category['id'] ?>"> <?= $category['name'] ?> </option>
                                 <?php endforeach ?>
-                                <!-- set_select('categories', $category) -->
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-primary"> <?= lang('App.save') ?> </button>
-                        <a type="button" href="<?= base_url('/categories') ?>" class="btn btn-danger">
-                            <?= lang('App.back') ?>
-                        </a>
+
                     </div>
+                    <div class="col-12" id="more-categories-<?= $i ?>"></div>
+                    <?php $i++ ?>
+
+                    <button type="submit" class="btn btn-primary" onclick="addCategory();"> <?= lang('App.save') ?> </button>
+
+                    <a type="button" href="<?= base_url('/categories') ?>" class="btn btn-danger">
+                        <?= lang('App.back') ?>
+                    </a>
                 </form>
+
                 <!-- /.row (nested) -->
             </div>
             <!-- /.panel-body -->
@@ -51,6 +52,13 @@
         <!-- /.panel -->
     </div>
     <!-- /.col-lg-12 -->
+
 </div>
+
+<?= $this->endSection() ?>
+
+<?= $this->section('js') ?>
+
+<?= script_tag('js/custom/categories.js') ?>
 
 <?= $this->endSection() ?>

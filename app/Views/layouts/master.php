@@ -7,6 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <script>
+        var csrfName = '<?= csrf_token() ?>';
+        var csrfHash = '<?= csrf_hash() ?>';
+    </script>
+
     <title> Paytabs </title>
 
     <!-- Custom fonts for this template-->
@@ -18,7 +23,7 @@
     <?= link_tag('css/no_data_found.css') ?>
 </head>
 
-<body id="page-top" style="font-family: 'DroidArabicKufiRegular';direction:rtl;">
+<body id="page-top">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -48,7 +53,7 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
             <li class="nav-item">
-                <a class="nav-link " href="<?= base_url('/categories') ?>">
+                <a class="nav-link " href="<?= base_url('/categories/new') ?>">
                     <?= img('img/massage__.png') ?>
                     <span> <?= lang('App.categories') ?> </span>
                 </a>
@@ -144,31 +149,6 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"> <?= lang('App.logout') ?> </h5>
-                    </button>
-                </div>
-                <div class="modal-body"><?= lang('App.logoutMessage') ?></div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">
-                        <?= lang('App.cancel') ?>
-                    </button>
-                    <a class="btn btn-primary" href="/logout" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                        <i class="fa fa-sign-out fa-fw"></i>
-                        <?= lang('App.logout') ?>
-                    </a>
-                    <form id="logout-form" action="/logout" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Bootstrap core JavaScript-->
     <?= script_tag('js/jquery.min.js') ?>
     <?= script_tag('js/bootstrap.min.js') ?>
@@ -176,6 +156,8 @@
     <!-- Core plugin JavaScript-->
     <?= script_tag('js/jquery.easing.min.js') ?>
     <?= script_tag('js/sb-admin-2.min.js') ?>
+
+    <?= $this->renderSection('js') ?>
 
 </body>
 
