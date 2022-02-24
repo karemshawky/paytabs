@@ -15,7 +15,7 @@ cp env .env
 ```
 ### In `.env` file **uncomment** some config values:
 
-- `CI_ENVIRONMENT`
+- `CI_ENVIRONMENT = development`
 - `app.baseURL` and add your base URL
 - add `app.indexPage = ''`
 - database section the part start with `database.default` and add your config
