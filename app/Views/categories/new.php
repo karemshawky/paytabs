@@ -18,7 +18,6 @@
                 <form action="javascript:void(0)" id="add-category-form" method="post">
                     <?= csrf_field() ?>
 
-                    <?php $i = 1 ?>
                     <div class="col-12">
                         <div class="form-group col-6">
                             <label> <?= lang('App.category_name') ?> </label>
@@ -26,7 +25,7 @@
                         </div>
                         <div class="form-group col-6">
                             <label> <?= lang('App.parent_category') ?> </label>
-                            <select class="form-control parent" name="categories" id="categories-<?= $i ?>" onclick="addDiv(<?= $i ?>)">
+                            <select class="form-control parent" name="categories" id="categories-1" onclick="addDiv(1)">
                                 <option value="0"> - </option>
                                 <?php foreach ($categories as $category) : ?>
                                     <option value="<?= $category['id'] ?>"> <?= $category['name'] ?> </option>
@@ -35,8 +34,7 @@
                         </div>
 
                     </div>
-                    <div class="col-12" id="more-categories-<?= $i ?>"></div>
-                    <?php $i++ ?>
+                    <div class="col-12" id="more-categories"></div>
 
                     <button type="submit" class="btn btn-primary" onclick="addCategory();"> <?= lang('App.save') ?> </button>
 

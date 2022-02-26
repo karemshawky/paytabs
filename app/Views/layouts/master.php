@@ -1,5 +1,5 @@
 <?= doctype(); ?>
-<html lang="ar" dir="rtl">
+<html lang="en">
 
 <head>
 
@@ -17,7 +17,7 @@
     <!-- Custom fonts for this template-->
     <?= link_tag('css/fontawesome-all.min.css') ?>
 
-    <?= link_tag('css/admin.rtl.css') ?>
+    <?= link_tag('css/admin.css') ?>
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/droid-arabic-kufi" type="text/css" />
 
     <?= link_tag('css/no_data_found.css') ?>
