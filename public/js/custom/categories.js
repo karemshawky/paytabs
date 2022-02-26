@@ -9,7 +9,7 @@ function addDiv(id) {
 			},
 			dataType: 'json',
 			success: function(categories) {
-				addCategories(categories, id);
+				showCategories(categories, id);
 			},
 			error: function(error) {
 				console.log(error);
@@ -18,7 +18,7 @@ function addDiv(id) {
 	});
 }
 
-function addCategories(categories, id) {
+function showCategories(categories, id) {
 	$(".categories-" + parseInt(id + 1)).each(function() {
 		$(this).parent().empty();
 	});
